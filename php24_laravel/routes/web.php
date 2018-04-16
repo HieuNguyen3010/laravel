@@ -77,7 +77,7 @@ Route::group(array("prefix"=>"admin","middleware"=>"auth"),function(){
 //---------
 //frontend
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.layout');
 });
 
 
