@@ -23,7 +23,7 @@ Route::get('home',function(){
 Route::group(array("prefix"=>"admin","middleware"=>"auth"),function(){
 	Route::get('',function(){
 		//lệnh redirect sẽ di chuyển đến một url chỉ định 
-		return redirect(url('admin/user'));
+		return redirect(url('admin/user')); 
 	});
 	//-----------
 	//logout
@@ -77,7 +77,11 @@ Route::group(array("prefix"=>"admin","middleware"=>"auth"),function(){
 //---------
 //frontend
 Route::get('/', function () {
-    return view('frontend.layout');
+    return view('frontend.home');
+});
+Route::get('news/category/{id}/{name}',function($id,$name){
+	$data["id"] = $id;
+	return view('frontend.category',$data);
 });
 
 

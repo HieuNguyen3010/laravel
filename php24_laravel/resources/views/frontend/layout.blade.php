@@ -5,6 +5,10 @@
 	<title>Document</title>
 	<link href="{{ asset('frontend/css/style.css') }}" rel="stylesheet" type="text/css" />
 </head>
+<?php 
+    //su dung class theo cau truc: ten_namespace\tenclass
+    use App\myclass\unicode as php24;
+ ?>
 <body>
 	<!-- wrapper -->
 	<div id="wrapper">
@@ -15,7 +19,7 @@
 			</div>
 			<div class="menu">
 				<ul>
-                    <li><a href="">Trang chủ</a></li>
+                    <li><a href="{{ url('/') }}">Trang chủ</a></li>
                     <li><a href="#">Giới thiệu</a></li>
                     <li><a href="#">Liên hệ</a></li>
                 </ul> 
@@ -28,57 +32,42 @@
         <div class="cn_wrapper">
         	<!-- cn_preview -->
             <div id="cn_preview" class="cn_preview">
+                <?php 
+                    $first_hot_news = DB::select("select * from tbl_news where c_hotnews=1 order by pk_news_id desc limit 0,4 ");
+                 ?>
+                 @foreach($first_hot_news as $arr_first_hot_news)
                <!-- first hot news -->
-                <div class="cn_content" style="background: url('{{ asset('frontend/img/ip6.jpg') }}') no-repeat center #ffffff; background-size:715px 355px;">
+                <div class="cn_content" style="background: url('{{ asset('upload/news/'.$arr_first_hot_news->c_img) }}') no-repeat center #ffffff; background-size:715px 355px;">
                     <div class="caption">
-                        <h3><a href="">Sony trình diễn loạt thiết bị công nghệ mới tại Sony Show 2016</a></h3>
+                        <h3><a href="">{{ $arr_first_hot_news->c_name }}</a></h3>
                         <p>
-                        	(Dân trí) - Triển lãm Sony Show 2017 đã chính thức mở cửa đón khách vào sáng nay 15/9 tại TPHCM. Tại đây, thương hiệu đến từ Nhật Bản đã trình diễn hàng lọat thiết bị mới vừa được ra mắt trên toàn cầu dành cho người tiêu dùng trong nước.
+                        	{!! $arr_first_hot_news->c_description !!}
                         </p>
                         <div class="date">
                             <h3>Hot<br><span>News</span></h3>
                         </div>
                     </div>
                 </div>
-                <!-- end first hot news -->            
+                <!-- end first hot news -->  
+                @endforeach          
             </div>
             <!-- end cn_preview -->
             <!-- cn_list -->
             <div id="cn_list" class="cn_list">
                 <div class="cn_page" style="display:block;">
+                    @foreach($first_hot_news as $arr_first_hot_news)
                     <!-- list hot news -->
                     <div class="cn_item">
                         <div class="left-box">
-                            <img src="{{ asset('frontend/img/ip6.jpg') }}" alt="">
+                            <img src="{{ asset('upload/news/'.$arr_first_hot_news->c_img) }}" alt="">
                         </div>
                         <div class="right-box">
-                            <h4>Sony trình diễn loạt thiết bị công nghệ mới tại Sony Show 2016</h4>
+                            <h4>{{ $arr_first_hot_news->c_name }}</h4>
                         </div>
                         <div class="clear"></div>
                     </div>
                     <!-- end list hot news -->
-                    <!-- list hot news -->
-                    <div class="cn_item">
-                        <div class="left-box">
-                            <img src="{{ asset('frontend/img/ip6.jpg') }}" alt="">
-                        </div>
-                        <div class="right-box">
-                            <h4>Sony trình diễn loạt thiết bị công nghệ mới tại Sony Show 2016</h4>
-                        </div>
-                        <div class="clear"></div>
-                    </div>
-                    <!-- end list hot news -->
-                    <!-- list hot news -->
-                    <div class="cn_item">
-                        <div class="left-box">
-                            <img src="{{ asset('frontend/img/ip6.jpg') }}" alt="">
-                        </div>
-                        <div class="right-box">
-                            <h4>Sony trình diễn loạt thiết bị công nghệ mới tại Sony Show 2016</h4>
-                        </div>
-                        <div class="clear"></div>
-                    </div>
-                    <!-- end list hot news -->
+                    @endforeach
                 </div>                      
             </div>
             <!-- end cn_list -->
@@ -90,133 +79,7 @@
             <div class="main-content">
                 <div class="left-container">
                 <!-- ========================================= -->
-                    <!-- @yield('controller') -->
-                    <!-- list category tin tuc -->
-                    <div class="row-fluid">
-                        <div class="marked-title">
-                            <h3><a href="" style="color:white">Tin nhân ái</a></h3>
-                        </div>
-                    </div>                    
-                    <div class="row-fluid">
-                        <div class="span2">
-                           <!-- first news -->
-                            <article>
-                                <div class="post-thumb">
-                                    <a href=""><img src="{{ asset('frontend/img/ip6.jpg') }}" alt=""></a>
-                                </div>
-                                <div class="cat-post-desc">
-                                    <h3><a href="">Sony trình diễn loạt thiết bị công nghệ mới tại Sony Show 2016</a></h3>
-                                    <p>
-                                    	"(Dân trí) - Triển lãm Sony Show 2017 đã chính thức mở cửa đón khách vào sáng nay 15/9 tại TPHCM. Tại đây, thương hiệu đến từ Nhật Bản đã trình diễn hàng lọat thiết bị mới vừa được ra mắt trên toàn cầu dành cho người tiêu dùng trong nước."
-                                    </p>
-                                </div>
-                            </article>
-                            <!-- end first news -->
-                        </div>
-                        <div class="span2">
-                           <!-- list news -->
-                            <article class="twoboxes">
-								<div class="right-desc">
-								    <h3><a href=""><img src="{{ asset('frontend/img/ip6.jpg') }}" alt=""></a><a href="">
-								    	Thay vì mua iPhone X, 50 triệu đồng có thể mua được những gì?
-								    </a>
-								    </h3>  
-								    <div class="clear"></div>    
-								</div>
-                                <div class="clear"></div>
-                            </article>
-                            <!-- end list news -->
-                            <!-- list news -->
-                            <article class="twoboxes">
-								<div class="right-desc">
-								    <h3><a href=""><img src="{{ asset('frontend/img/ip6.jpg') }}" alt=""></a><a href="">
-								    	Thay vì mua iPhone X, 50 triệu đồng có thể mua được những gì?
-								    </a>
-								    </h3>  
-								    <div class="clear"></div>    
-								</div>
-                                <div class="clear"></div>
-                            </article>
-                            <!-- end list news -->
-                            <!-- list news -->
-                            <article class="twoboxes">
-								<div class="right-desc">
-								    <h3><a href=""><img src="{{ asset('frontend/img/ip6.jpg') }}" alt=""></a><a href="">
-								    	Thay vì mua iPhone X, 50 triệu đồng có thể mua được những gì?
-								    </a>
-								    </h3>  
-								    <div class="clear"></div>    
-								</div>
-                                <div class="clear"></div>
-                            </article>
-                            <!-- end list news -->
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                    <!-- end list category tin tuc -->
-                    <!-- list category tin tuc -->
-                    <div class="row-fluid">
-                        <div class="marked-title">
-                            <h3><a href="" style="color:white">Tin giáo dục</a></h3>
-                        </div>
-                    </div>                    
-                    <div class="row-fluid">
-                        <div class="span2">
-                           <!-- first news -->
-                            <article>
-                                <div class="post-thumb">
-                                    <a href=""><img src="{{ asset('frontend/img/ip6.jpg') }}" alt=""></a>
-                                </div>
-                                <div class="cat-post-desc">
-                                    <h3><a href="">Sony trình diễn loạt thiết bị công nghệ mới tại Sony Show 2016</a></h3>
-                                    <p>
-                                    	"(Dân trí) - Triển lãm Sony Show 2017 đã chính thức mở cửa đón khách vào sáng nay 15/9 tại TPHCM. Tại đây, thương hiệu đến từ Nhật Bản đã trình diễn hàng lọat thiết bị mới vừa được ra mắt trên toàn cầu dành cho người tiêu dùng trong nước."
-                                    </p>
-                                </div>
-                            </article>
-                            <!-- end first news -->
-                        </div>
-                        <div class="span2">
-                           <!-- list news -->
-                            <article class="twoboxes">
-								<div class="right-desc">
-								    <h3><a href=""><img src="{{ asset('frontend/img/ip6.jpg') }}" alt=""></a><a href="">
-								    	Thay vì mua iPhone X, 50 triệu đồng có thể mua được những gì?
-								    </a>
-								    </h3>  
-								    <div class="clear"></div>    
-								</div>
-                                <div class="clear"></div>
-                            </article>
-                            <!-- end list news -->
-                            <!-- list news -->
-                            <article class="twoboxes">
-								<div class="right-desc">
-								    <h3><a href=""><img src="{{ asset('frontend/img/ip6.jpg') }}" alt=""></a><a href="">
-								    	Thay vì mua iPhone X, 50 triệu đồng có thể mua được những gì?
-								    </a>
-								    </h3>  
-								    <div class="clear"></div>    
-								</div>
-                                <div class="clear"></div>
-                            </article>
-                            <!-- end list news -->
-                            <!-- list news -->
-                            <article class="twoboxes">
-								<div class="right-desc">
-								    <h3><a href=""><img src="{{ asset('frontend/img/ip6.jpg') }}" alt=""></a><a href="">
-								    	Thay vì mua iPhone X, 50 triệu đồng có thể mua được những gì?
-								    </a>
-								    </h3>  
-								    <div class="clear"></div>    
-								</div>
-                                <div class="clear"></div>
-                            </article>
-                            <!-- end list news -->
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                    <!-- end list category tin tuc -->
+                     @yield('controller')                   
                  <!-- ========================================= -->   
                 </div>
                 <div class="right-container">
@@ -226,13 +89,12 @@
                                 <h3>Danh mục tin tức</h3>
                             </div>
                             <ul class="tags">
-                                <li><a class="photo" href="">Tin nhan ai</a></li>                
-                                <li><a class="photo" href="">Tin giao duc</a></li>                
-                                <li><a class="photo" href="">Tin the thao</a></li>                
-                                <li><a class="photo" href="">Tin su kien</a></li>                
-                                <li><a class="photo" href="">Tin khoa hoc</a></li>                
-                                <li><a class="photo" href="">Tin the gioi</a></li>                
-                                <li><a class="photo" href="">Tin xa hoi</a></li>                
+                                <?php 
+                                    $category = DB::table('tbl_category_news')->orderBy('pk_category_news_id','asc')->get();
+                                 ?>
+                                 @foreach($category as $rows)
+                                <li><a class="photo" href="{{ url('news/category/'.$rows->pk_category_news_id.'/'.php24::remove_unicode($rows->c_name)) }}">{{ $rows->c_name }}</a></li>
+                                @endforeach                            
                             </ul>
                             <div class="clear"></div>
                         </div>
