@@ -75,7 +75,7 @@
 			<table class="table table-bordered table-hover">
 				<tr>
 					<th>Tên danh mục</th>
-					<th style="width:100px;">Quản lý</th>
+					<th style="width:100px;">Chức năng</th>
 				</tr>
 				@foreach($arr as $rows)
 				<tr>

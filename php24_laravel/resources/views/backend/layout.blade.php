@@ -24,9 +24,11 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
+            <li class="active"><a href="{{ url('admin/home') }}">Home</a></li>
             <li class="active"><a href="{{ url('admin/category') }}">Danh mục tin tức</a></li>
             <li class="active"><a href="{{ url('admin/news') }}">Tin tức</a></li>
+            <li class="active"><a href="{{ url('admin/categoryProduct') }}">Danh mục sản phẩm</a></li>
+            <li class="active"><a href="{{ url('admin/product') }}">Sản phẩm</a></li>
             <li class="active"><a href="{{ url('admin/user') }}">Quản lý user</a></li>
             <li class="active"><a href="{{ url('admin/logout') }}">Đăng xuất</a></li>
           </ul>

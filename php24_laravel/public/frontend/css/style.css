@@ -16,6 +16,7 @@ header {
     position:  relative;
     z-index:  50000;
     background: #ffffff;
+    margin-bottom: 20px;
 }
 
 .logo a {
@@ -32,7 +33,7 @@ header {
 
 header .menu ul {
     list-style:  none;
-    margin-top:  60px;
+    margin-top:  90px;
     margin-right: 35px;
 }
 
@@ -44,6 +45,7 @@ header .menu {
 header .menu ul li {
     float:  left;
     margin-left: 20px;
+    position: relative;
 }
 
 header .menu ul li a {
@@ -59,13 +61,36 @@ header .menu ul li a:hover{
 	color: #ffb400;
 }
 
+.search {
+    display: inline-block;
+    position: absolute;
+    top: 125px;
+    left: 35px;
+}
+
+input[type="text"] {
+    border: 1px solid #ffb400;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+input[type="text"]:focus {
+    background-color: #EEEEEE;
+}
+
+button {
+    border-radius:  5px;
+    padding: 5px;
+}
+
 header .border_bottom {
     border: 1px solid #e9b229;
     width: 1015px;
     margin:  auto;
     position:  absolute;
-    top: 130px;
+    top: 160px;
     left: 35px;
+    z-index: -1;
 }
 
 .clear {
@@ -486,6 +511,214 @@ footer {
     float: left;
     margin-right: 10px;
     border: 1px solid black;
-    padding: 5px;
+    padding: 10px;
+    background: #eeede9;
+}
+
+.post-navi li:hover{
     background: #e6c677;
+}
+
+ul.pagination {
+    margin-left: 20px;
+}
+
+.post-content p {
+    margin-bottom: 20px;
+}
+
+article.small.single {
+    border-bottom: none;
+    margin-bottom: 25px;
+}
+
+article.small.single .post-thumb {
+    float: left;
+    margin-bottom: 13px;
+    margin-right: 10px;
+    z-index: 1
+}
+
+article.small.single .cat-post-desc {
+    width: 100%;
+    float: none;
+    margin-top: -5px;
+}
+
+article.small .cat-post-desc h3 {
+    font-size: 12px;
+    line-height: 18px;
+    font-family: 'Arial';
+    margin-bottom: 0px;
+    margin-top: 5px;
+}
+
+article.small.single .cat-post-desc p{
+    color: #6f6f6f;
+    font-size: 14px;
+    line-height: 18px;
+    font-family: 'Arial';
+    padding-bottom: 0px;
+    margin-bottom: 5px;
+}
+
+.lineother {
+    border-bottom: 1px dotted #e6c677;
+    margin-top: 35px;
+}
+
+#time {
+    position: absolute;
+    right: 40px;
+    top: 50px;
+    color: #ffb400;
+    font-weight: bold;
+}
+
+#scrollTop {
+    position: fixed;
+    right: 33px;
+    bottom: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    background: #dddddd;
+    transition: 1s;
+    display: none;
+}
+
+#scrollTop:hover{
+    background: #ffb400;
+}
+
+/*style product*/
+.product-grid {
+    width: 200px;
+    border: 1px solid #b9a7a7;
+    text-align: center;
+    border-radius: 5px;
+    float: left;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.product-grid .image img {
+    padding: 10px;
+    display: inline-block;
+}
+
+.product-grid .info .name a {
+    color:  black;
+}
+
+span.price.product-price {
+    color:  red;
+}
+
+p.price-box {
+    padding: 5px 0px;
+}
+
+.info .action-btn a.button {
+    border:  1px solid gray;
+    border-radius:  10px;
+    padding:  4px;
+    transition: 0.4s;
+}
+
+.info .action-btn a.button:hover{
+    background: #e9b229;
+}
+
+.action-btn {
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+/**/
+
+.menucha li:hover>ul.menucon{
+    display: block;
+}
+
+.menucha .menucon li {
+    float:  none;
+    padding: 5px 10px;
+    background: #e6dede;
+    /* margin-top: 10px; */
+}
+
+.menucha .menucon {
+    position:  absolute;
+    width: 200px;
+    margin: 0;
+    padding: 0;
+    left: -20px;
+    margin-top: 2px;
+    display: none;
+}
+
+.menucha li:hover>ul.menucon {
+    display:  block;
+}
+
+/*detail product*/
+.row {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.row .product-image {
+    width: 40%;
+    float:  left;
+    /* margin-left: 20px; */
+    margin-right: 60px;
+}
+
+.row .product-image img {
+    width: 300px;
+}
+
+.row .info {
+    width:  50%;
+    float:  left;
+}
+
+.row h1.name_product {
+    border-bottom: 1px solid #dccccc;
+    /* margin-bottom: 20px; */
+    padding-bottom: 10px;
+}
+
+.row p.category {
+    margin-top:  10px;
+    margin-bottom:  10px;
+}
+
+.row .info .price {
+    font-size: 35px;
+    color: red;
+}
+
+.row .info .description {
+    color: gray;
+}
+
+.row .action-btn {
+    margin-top: 10px;
+}
+
+.middle {
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.middle .name {
+    font-size: 25px;
+    border-bottom: 1px solid #bdaaaa;
+}
+
+.middle .content {
+    color:  gray;
+    margin-top: 10px;
 }

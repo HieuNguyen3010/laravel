@@ -90,4 +90,9 @@ class c_newsController extends Controller
 		//quay tro lai trang tin tuc
     	return redirect(url('admin/news'));
     }
+    public function getSearch(Request $req){
+            $key = $req->key;
+            $news = DB::table('tbl_news')->where('c_name','like',"%$key%")->orWhere('c_description','like',"%$key%")->get();
+            return view('frontend.search',['news'=>$news,'key'=>$key]);
+    }
 }

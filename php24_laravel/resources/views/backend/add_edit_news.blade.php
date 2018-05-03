@@ -49,7 +49,7 @@
 				<div class="col-md-3">Chi tiết</div>
 				<div class="col-md-9">
 					<textarea name="c_content" class="form-control" style="height:300px;">
-					{{ isset($arr->c_content)?$arr->c_description:'' }}
+					{{ isset($arr->c_content)?$arr->c_content:'' }}
 					</textarea>
 					<script type="text/javascript">
 						CKEDITOR.replace('c_content');

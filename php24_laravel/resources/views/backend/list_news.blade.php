@@ -14,7 +14,7 @@
 					<th>Tiêu đề</th>
 					<th style="width:200px;">Thuộc danh mục</th>
 					<th style="width: 100px;">Tin nổi bật</th>
-					<th style="width:100px;"></th>
+					<th style="width:100px;">Chức năng</th>
 				</tr>
 			<?php 
 				$stt = 0;
